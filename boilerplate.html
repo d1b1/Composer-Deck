@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=1024, user-scalable=no">
 
-	<title>Your deck.js Presentation</title>
+	<title>Composer Stack</title>
 	
 	<!-- Required stylesheet -->
 	<link rel="stylesheet" href="core/deck.core.css">
@@ -26,21 +29,113 @@
 	
 	<!-- Required Modernizr file -->
 	<script src="modernizr.custom.js"></script>
+
 </head>
 <body class="deck-container">
 
 <!-- Begin slides. Just make elements with a class of slide. -->
 
-<section class="slide">
-	<h1>Slide</h1>
+<section class="slide" id="Into">
+	<h1>Composer Stack</h1>
+</section>
+
+<section class="slide" id="Parts">
+	<h2>Outline</h2>
+	<ul>
+	  <li>UI</li>
+	  <li>API</li>
+	  <li>Widgets</li>
+	  <li>UI Stack</li>
+	  <li>API Stack</li>
+	  <li>Git Deploy</li>
+	  <li>Event Loop</li>
+	  <li>Wins</li>
+	</ul>
+</section>
+
+<section class="slide" id="ComposerUI">
+	<h2>The UI</h2>
+
+  <iframe src="http://composer.nprstations.org" style="background-color: #FFF ! important" width="100%" height="500" frameborder="1"></iframe>
+
+</section>
+
+<section class="slide" id="Widgets">
+	<h2>The Widgets</h2>
+
+	<pre style="float: left; width:40%"><code >&lt;iframe src=&quot;http://composer.nprstations.org/widgets/iframe/daily.html?station=50e451b6a93e91ee0a00028e&quot; width=&quot;50%&quot; height=&quot;600&quot; frameborder=&quot;0&quot; seamless&gt;&lt;/iframe&gt;</code></pre>
+
+	<iframe src="http://composer.nprstations.org/widgets/iframe/searchlist.html?station=50e451b6a93e91ee0a00028e&visible=searchlist" width="55%" height="500" frameborder="0" style="float: right;" seamless></iframe>
+
+</section>
+
+<section class="slide" id="API">
+	<h2>The API</h2>
+
+  <iframe src="https://api.composer.nprstations.org" width="100%" height="500" frameborder="1"></iframe>
+
 </section>
 
 <section class="slide">
-	<h1>Content</h1>
+	<h2>UI Stack</h2>
+	<ul>
+	  <li>Backbone.js - MVC (backbonejs.org/)</li>
+	  <li>Require.js - AMD Module framework. (requirejs.org)</li>
+	  <li>Moment.js - Javascript date library. (momentjs.com)</li>
+	  <li>Underscore.js - Javascript utility library (underscorejs.org)</li>
+	  <li>Layout Manager - Backbone library (https://github.com/tbranyen/backbone.layoutmanager)</a>
+	</ul>
 </section>
 
 <section class="slide">
-	<h1>Here</h1>
+	<h2>API Stack</h2>
+	<ul>
+	  <li>Node.js</li>
+	  <li>NPM - Node Package Manager (npmjs.org)</li>
+	  <li>Express.js - Lightweight HTTP framework. (expressjs.com)</li>
+	  <li>Swagger UI - Restful API framework. (https://developers.helloreverb.com/swagger/)</li>
+	  <li>Underscore.js - Javascript utility library (underscorejs.org/)</li>
+	  <li>Grunt.js - Build and deployment project (gruntjs.com)</li>
+	  <li>Moment.js - Date library. (momentjs.com)</li>
+	  <li>NodeFly - Third party monitoring service (nodefly.com)</li>
+	</ul>
+</section>
+
+<section class="slide" id="git">
+	<h2>Git Deploy</h2>
+	<ul>
+	  <li>Git - Uses remotes and SSH to for deployment</li>
+	  <li>Gitolite - Project installed on the AWS instance. Handles SSH and permissions for different users.</li>
+	  <li>Post Receive Hook - Handle git pushs. Create a build and runs npm and restart.</li>
+	</ul>
+	<pre><code>
+  git push aws master
+	</code></pre>
+</section>
+
+<section class="slide" id="EventLoop">
+	<h2>What is the node event loop?</h2>
+	<img src="eventloop.png" width="500" align=right>
+	<ul>
+	  <li>Node is single threaded.</li>
+	  <li>Binds directly to a port.</li>
+	  <li>All code must be non-blocking; db, file, search etc.</li>
+	  <li>All code resides in memory at startup.</li>
+	  <li>Developer must handle all exceptions and errors.</li>
+	</ul>
+
+</section>
+
+<section class="slide">
+	<h2>Wins</h2>
+	<ul>
+	  <li>Grunt - Simplifies JS deployments with min, mincss, concat and require.</li>
+	  <li>Nodefly - Gave visibility into the event loop.</li>
+	  <li>Swagger UI - Gives the API a user friendly interface.</li>
+	  <li>Underscore.js / Moment - Works in both client and browser.</li>
+	  <li>Git Deployment - Fast and secure</li>
+	  <li>Extreme Speed - Avg. response is under 30ms.</li>
+	</ul>
 </section>
 
 <!-- End slides. -->
